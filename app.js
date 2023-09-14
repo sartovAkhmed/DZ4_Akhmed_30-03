@@ -15,7 +15,19 @@ const arrayMath = (array, mathFunction) => {
     }
     console.log(result);
 }
-function mathFunction(a,b) {
-    return a + b
-}
+const mathFunction = (a,b) => a + b
 arrayMath([1,2,3,4,5], mathFunction);
+
+// up date version
+const operationMath = (arr, oper) => {
+    const result = oper(arr)
+    return result
+}
+function opers (arr){
+    return arr.reduce((a,b,index) => a + b)
+    // return arr.reduce((a,b,index) => {
+    //     console.log('index: ' + index + ` | ${a} + ${b}`);
+    //     return a + b
+    // })
+}
+console.log(operationMath([1,2,3,4,5], opers));
