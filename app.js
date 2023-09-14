@@ -5,19 +5,17 @@ const button = document.querySelectorAll('.btn')
 let count = 0
 button[0].onclick = () => {count++; input.placeholder = count}
 button[1].onclick = () => {count--; input.placeholder = count}
-// ---------------------
 /* ⁃ Напишите функцию, которая принимает в качестве параметра массив и математическое  действие. 
 Функция должна проходиться по массиву и делать с элементами то, что указано во втором параметре. 
 В качестве аргумента второго параметра должна быть функция  */
-function arrayOperation(array, mathOperation) {
-  // Проходимся по элементам массива и применяем к каждому элементу указанное математическое действие
-    const result = [];
-    for (let i in array) {
-        const element = array[i];
-        const transformedElement = mathOperation(element);
-        result.push(transformedElement);
+const arrayMath = (array, mathFunction) => {
+    let result = 0
+    for(var i = 0; i < array.length; i++){
+        result = mathFunction(result, array[i])
     }
-    return result;
+    console.log(result);
 }
-const operator = (operation) => operation + operation
-console.log(arrayOperation([1, 2, 3, 4, 5], operator));
+function mathFunction(a,b) {
+    return a + b
+}
+arrayMath([1,2,3,4,5], mathFunction);
